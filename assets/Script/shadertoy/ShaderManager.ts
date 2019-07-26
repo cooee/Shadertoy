@@ -1,17 +1,6 @@
-import ShaderLib from './ShaderLib';
+import ShaderLib, { ShaderType } from './ShaderLib';
 import CustomMaterial from "./CustomMaterial";
-/**
- * 定义材质类型
- */
-export enum ShaderType {
-    // 系统自带
-    Normal = -2,
-    // 系统自带
-    Gray,
-    Lighting,
-    Water,
-    Ice,
-}
+
 
 export default class ShaderManager {
     /**
@@ -29,11 +18,10 @@ export default class ShaderManager {
         }
         if (shaderID > ShaderType.Gray) {
             let name = ShaderType[shaderID];
-            let shader = ShaderLib.getInstance().getShader(name)
-            console.log(shader)
-
+            let shader = ShaderLib.getInstance().getShader(name)//根据名称获取对应的shader
+            // console.log(shader)
             cc.dynamicAtlasManager.enabled = false;
-            let material = CustomMaterial.getInstance(name, shader.params);
+            let material = CustomMaterial.getInstance().initWithName(name, shader.params);
             let texture = sprite.spriteFrame.getTexture();
             material.setTexture(texture);
             material.updateHash();

@@ -5,6 +5,18 @@ import Lighting from "./shaders/Lighting";
 import Ice from "./shaders/Ice";
 
 
+/**
+ * 定义材质类型
+ */
+export enum ShaderType {
+    // 系统自带
+    Normal = -2,
+    // 系统自带
+    Gray,
+    Lighting,
+    Water,
+    Ice,
+}
 
 /**
  * Shader库

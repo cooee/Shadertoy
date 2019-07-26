@@ -9,15 +9,15 @@ export default class CustomMaterial extends Material {
         super(false);
     }
 
-    public static getInstance(shaderName: string, params?: any | void): CustomMaterial {
+    public static getInstance(): CustomMaterial {
         if (!this.instance) {
             this.instance = new CustomMaterial();
         }
-        this.instance.initWithName(shaderName, params)
+        // this.instance.initWithName(shaderName, params)
         return this.instance;
     }
 
-    private initWithName(shaderName: string, params?: any | void) {
+    public initWithName(shaderName: string, params?: any | void) {
         let renderer = renderEngine.renderer;
         let gfx = renderEngine.gfx;
         console.log(shaderName, "shaderName")
@@ -34,9 +34,6 @@ export default class CustomMaterial extends Material {
 
         let techParams = [
             { name: 'texture', type: renderer.PARAM_TEXTURE_2D },
-            { name: 'pos', type: renderer.PARAM_FLOAT3 },
-            { name: 'size', type: renderer.PARAM_FLOAT2 },
-            { name: 'time', type: renderer.PARAM_FLOAT },
             { name: 'num', type: renderer.PARAM_FLOAT },
         ];
 
@@ -53,12 +50,6 @@ export default class CustomMaterial extends Material {
         // @ts-ignore
         this._texture = null;
         // @ts-ignore
-        this._pos = { x: 0.0, y: 0.0, z: 0.0 };
-        // @ts-ignore
-        this._size = { x: 0.0, y: 0.0 };
-        // @ts-ignore
-        this._time = 0.0;
-        // @ts-ignore
         this._num = 0.0;
 
 
@@ -68,15 +59,14 @@ export default class CustomMaterial extends Material {
                 mainTech
             ],
             {
-                'pos': this._pos,
-                'size': this._size,
-                'time': this._time,
                 'num': this._num,
             },
             []
         );
         // @ts-ignore
         this._mainTech = mainTech;
+
+        return this;
     }
 
     setTexture(texture) {
@@ -94,25 +84,6 @@ export default class CustomMaterial extends Material {
         }
     }
 
-    setPos(x, y, z) {
-        this._pos.x = x;
-        this._pos.y = y;
-        this._pos.z = z;
-        this._effect.setProperty('pos', this._pos);
-    }
-
-    setSize(x, y) {
-        this._size.x = x;
-        this._size.y = y;
-        this._effect.setProperty('size', this._size);
-    }
-
-    setTime(time) {
-        // @ts-ignore
-        this._time = time;
-        this._effect.setProperty('time', this._time);
-    }
-
     setNum(num) {
         // @ts-ignore
         this._num = num;
@@ -124,6 +95,5 @@ export default class CustomMaterial extends Material {
         this._effect.setProperty(name, value);
         return this;
     };
-
 
 }
