@@ -2,13 +2,14 @@
 import CustomMaterial from "./CustomMaterial";
 import ShaderManager from "./ShaderManager";
 import ShaderLib, { ShaderType } from './ShaderLib';
-const { ccclass, property, requireComponent, executeInEditMode } = cc._decorator;
+const { ccclass, property, requireComponent, executeInEditMode,menu } = cc._decorator;
 
 var NeedUpdate = [];
 
 @ccclass
 @executeInEditMode
 @requireComponent(cc.Sprite)
+@menu("Shadertoy/ShaderComponent")
 export default class ShaderComponent extends cc.Component {
 
     @property({ type: cc.Enum(ShaderType), visible: false })

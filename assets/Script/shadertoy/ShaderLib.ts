@@ -1,5 +1,5 @@
 
-import Water from "./shaders/Water";
+import Heart from "./shaders/Heart";
 import Shader from "./Shader";
 import Lighting from "./shaders/Lighting";
 import Ice from "./shaders/Ice";
@@ -14,7 +14,7 @@ export enum ShaderType {
     // 系统自带
     Gray,
     Lighting,
-    Water,
+    Heart,
     Ice,
 }
 
@@ -45,7 +45,7 @@ export default class ShaderLib {
      * 初始化一些shader实例
      */
     public init() {
-        this.addShader(new Water());
+        this.addShader(new Heart());
         this.addShader(new Lighting());
         this.addShader(new Ice());
     }

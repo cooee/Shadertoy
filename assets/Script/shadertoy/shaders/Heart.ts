@@ -3,9 +3,9 @@ import Shader from "../Shader";
 
 Shader
 // // Shader: 水
-export default class Water extends Shader {
+export default class Heart extends Shader {
 
-	public name = "Water";
+	public name = "Heart";
 
 	public params = [
 		{ name: 'iResolution', type: this.renderer.PARAM_FLOAT3 },
