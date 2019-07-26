@@ -2,6 +2,7 @@
 import Water from "./shaders/Water";
 import Shader from "./Shader";
 import Lighting from "./shaders/Lighting";
+import Ice from "./shaders/Ice";
 
 
 
@@ -34,6 +35,7 @@ export default class ShaderLib {
     public init() {
         this.addShader(new Water());
         this.addShader(new Lighting());
+        this.addShader(new Ice());
     }
     public getShaderMap() {
         return this._shaders

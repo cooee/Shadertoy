@@ -10,6 +10,7 @@ export enum ShaderType {
     Gray,
     Lighting,
     Water,
+    Ice,
 }
 
 export default class ShaderManager {
