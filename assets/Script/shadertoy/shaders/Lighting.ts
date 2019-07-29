@@ -122,15 +122,10 @@ export default class Lighting extends Shader {
 		uv.x=2.*uv.x-1.;
 		uv.y=1.-2.*uv.y;
 		uv.x*=iResolution.x/iResolution.y;
-
 		vec3 col = electric(uv*2.);
 
 		fragColor=vec4(col,1.);
 		
-		// fragColor = vec4(col.x*0.7,col.y*0.6,col.z*0.9, 0.5); 
-		// if(col.x <= (45./255.) && col.y <=(45./255.) && col.z <=(45./255.)) {
-		// 	fragColor=vec4(col,0.);
-		// }
 	}
 
 	void main()

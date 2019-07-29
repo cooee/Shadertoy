@@ -62,6 +62,9 @@ export default class Heart extends Shader {
 		vec3 col = mix( bcol, hcol, smoothstep( -0.01, 0.01, d-r) );
 	
 		fragColor = vec4(col,1.0);
+		// if(col == bcol) {
+		// 	fragColor = vec4(col,0.0);
+		// }
 	}
 		
     void main()

@@ -3,7 +3,7 @@ import Heart from "./shaders/Heart";
 import Shader from "./Shader";
 import Lighting from "./shaders/Lighting";
 import Ice from "./shaders/Ice";
-
+import Cloud from "./shaders/Cloud";
 
 /**
  * 定义材质类型
@@ -16,6 +16,7 @@ export enum ShaderType {
     Lighting,
     Heart,
     Ice,
+    Cloud,
 }
 
 /**
@@ -48,6 +49,7 @@ export default class ShaderLib {
         this.addShader(new Heart());
         this.addShader(new Lighting());
         this.addShader(new Ice());
+        this.addShader(new Cloud());
     }
     public getShaderMap() {
         return this._shaders
